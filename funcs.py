@@ -3,9 +3,6 @@ from itertools import product
 from collections import Counter
 from termgraph.termgraph import chart
 
-termgraph_args = {'stacked':False,'width':50,'no_labels':False,
-        'format':'{:<5.2f}','suffix':'','vertical':False
-        }
 
 # i.e 1d4+2d4+1+-1
 def validInput(inp: str) -> bool:
@@ -41,7 +38,7 @@ def separateDice(inp: str) -> list:
                 finalDiceList.append(f'1d{i[2]}')
     return finalDiceList
 
-def stats(inp: str):
+def stats(inp: str, termgraph_args: dict):
     finalDice = separateDice(inp)
     finalList=[]
     for i in finalDice:
