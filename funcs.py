@@ -19,7 +19,7 @@ def modToDice(inp: str) -> list:
     li = inp.split('+')
     dicedmod=[]
     for i in li:
-        if bool(re.match(r'^[1-9]+d[1-9]+$|^[1-9]+d[1-9]+$',i)) == False:
+        if bool(re.match(r'^-[1-9]+d[1-9]+$|^[1-9]+d[1-9]+$',i)) == False:
             if i[0] == '-':
                 dicedmod.append(f'-{i[1]}d1')
             else:
@@ -56,6 +56,7 @@ def stats(inp: str):
     dice_combination = product(*finalList)
     space = list(map(sum,dice_combination))
     space.sort()
+    print()
     print(f'min: {space[0]}')
     print(f'max: {space[-1]}')
     print(f'average: {sum(space)/len(space)}')
