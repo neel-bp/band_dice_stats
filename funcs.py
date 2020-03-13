@@ -8,7 +8,7 @@ from termgraph.termgraph import chart
 def validInput(inp: str) -> bool:
     li = inp.split('+')
     for i in li:
-        if bool(re.match(r'^-[1-9]+d[1-9]+$|^[1-9]+d[1-9]+$|^-[1-9]+$|^[1-9]+$',i)) == False:
+        if bool(re.match(r'^-[0-9]+d[0-9]+$|^[0-9]+d[0-9]+$|^-[0-9]+$|^[0-9]+$',i)) == False:
             return False
     return True
 
@@ -16,11 +16,11 @@ def modToDice(inp: str) -> list:
     li = inp.split('+')
     dicedmod=[]
     for i in li:
-        if bool(re.match(r'^-[1-9]+d[1-9]+$|^[1-9]+d[1-9]+$',i)) == False:
+        if bool(re.match(r'^-[0-9]+d[0-9]+$|^[0-9]+d[0-9]+$',i)) == False:
             if i[0] == '-':
-                dicedmod.append(f'-{i[1]}d1')
+                dicedmod.append(f'{i}d1')
             else:
-                dicedmod.append(f'{i[0]}d1')
+                dicedmod.append(f'{i}d1')
         else:
             dicedmod.append(i)
     return dicedmod
@@ -31,11 +31,11 @@ def separateDice(inp: str) -> list:
     finalDiceList=[]
     for i in dicedmod:
         if i[0] == '-':
-            for _ in range(int(i[1])):
-                finalDiceList.append(f'-1d{i[3]}')
+            for _ in range(int(i[1:i.index('d')])):
+                finalDiceList.append(f'-1{i[i.index("d"):]}')
         else:
-            for _ in range(int(i[0])):
-                finalDiceList.append(f'1d{i[2]}')
+            for _ in range(int(i[0:i.index('d')])):
+                finalDiceList.append(f'1{i[i.index("d"):]}')
     return finalDiceList
 
 def stats(inp: str, termgraph_args: dict):
@@ -44,10 +44,10 @@ def stats(inp: str, termgraph_args: dict):
     for i in finalDice:
         li=[]
         if i[0] == '-':
-            for j in range(int(f'-{i[3]}'),0):
+            for j in range(int(f'-{i[3:]}'),0):
                 li.append(j)
         else:
-            for k in range(1,int(i[2])+1):
+            for k in range(1,int(i[2:])+1):
                 li.append(k)
         finalList.append(li)
     dice_combination = product(*finalList)
