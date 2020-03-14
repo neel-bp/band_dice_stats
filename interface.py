@@ -9,7 +9,10 @@ def parser():
         'DiceString',
         metavar='[dice_string]',
         type = str,
-        help='enter dice string in dnd/angband style (i.e 2d4+1d8) also supports negative dice rolls and modifiers, enter negative rolls and modifiers in this form "2d4+-1d8", everydice roll must be separated by "+" sign',
+        help='''enter dice string in dnd/angband style (i.e 2d4+1d8) also
+        supports negative dice rolls and modifiers, enter negative rolls and
+        modifiers in this form "2d4+-1d8", everydice roll must be separated by
+        "+" sign''',
         action='store'
             )
 
@@ -19,7 +22,8 @@ def parser():
         type=int,
         metavar='[width]',
         action='store',
-        default=50
+        default=50,
+        help='specify width of bar graph'
             )
     return myparser
 
