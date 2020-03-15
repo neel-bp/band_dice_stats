@@ -1,5 +1,5 @@
 import argparse
-from funcs import validInput, stats
+from band_dice_stats.funcs import validInput, stats
 import sys
 
 def parser():
