@@ -12,7 +12,7 @@ setup(
    url='https://github.com/neelu0/band_dice_stats',
    entry_points={
         "console_scripts": [
-            "bandroll=band_dice_stats.__main__",
+            "bandroll=band_dice_stats.interface:main",
         ]
     }
 )
