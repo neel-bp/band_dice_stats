@@ -1,6 +1,6 @@
 import argparse
-from band_dice_stats.funcs import validInput, stats
 import sys
+from .funcs import stats, validInput
 
 def parser():
     myparser = argparse.ArgumentParser()
