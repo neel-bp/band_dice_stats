@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
    name='band_dice_stats',
-   version='0.1',
+   version='0.2',
    description='simple cli program for finding probability distribution from dnd-style dicestrings inspired by anydice.com',
    author='Neelu',
    author_email='neelu0@protonmail.com',
