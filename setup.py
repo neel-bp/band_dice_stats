@@ -8,7 +8,7 @@ setup(
    author='Neelu',
    author_email='neelu0@protonmail.com',
    packages=['band_dice_stats'],  #same as name
-   install_requires=['termgraph>=0.2.1'],  #external packages as dependencies
+   install_requires=['termgraph==0.2.1'],  #external packages as dependencies
    url='https://github.com/neelu0/band_dice_stats',
    entry_points={
         "console_scripts": [
